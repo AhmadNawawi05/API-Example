@@ -7,6 +7,7 @@ var corsOptions = {
   origin: "http://localhost:8081"
 };
 
+
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
@@ -36,9 +37,8 @@ require('./src/routes/auth.routes')(app);
 require('./src/routes/user.routes')(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+app.listen(process.env.APP_PORT, () => {
+  console.log(`Server berjalan https://localhost:${process.env.APP_PORT}`);
 });
 
 function initial() {
